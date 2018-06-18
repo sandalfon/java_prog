@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=GrayScaleConverter
+comment1.params=inImage
+comment1.target=edu.duke.ImageResource\ makeGray(edu.duke.ImageResource)
+comment2.params=inImage
+comment2.target=edu.duke.ImageResource\ makeInvert(edu.duke.ImageResource)
+comment3.params=
+comment3.target=void\ selectAndConvertGray()
+comment4.params=
+comment4.target=void\ selectAndConvertInvert()
+comment5.params=
+comment5.target=void\ testGray()
+comment6.params=image\ path\ tag
+comment6.target=void\ saveImage(edu.duke.ImageResource,\ java.lang.String,\ java.lang.String)
+numComments=7
