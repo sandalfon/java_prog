@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=WordPlay
+comment0.text=\r\n\ D\u00E9crivez\ votre\ classe\ WordPlay\ ici.\r\n\r\n\ @author\ (votre\ nom)\r\n\ @version\ (un\ num\u00E9ro\ de\ version\ ou\ une\ date)\r\n
+comment1.params=
+comment1.target=void\ testEmphasize()
+comment2.params=phrase\ ch
+comment2.target=java.lang.String\ emphasize(java.lang.String,\ char)
+comment3.params=val
+comment3.target=boolean\ isEven(int)
+comment4.params=phrase\ ch
+comment4.target=java.lang.String\ replaceVowels(java.lang.String,\ char)
+comment5.params=
+comment5.target=void\ testReplaceVowels()
+comment6.params=ch
+comment6.target=boolean\ isVowel(char)
+comment7.params=s
+comment7.target=void\ print(java.lang.String)
+comment8.params=
+comment8.target=void\ testIsVowel()
+numComments=9

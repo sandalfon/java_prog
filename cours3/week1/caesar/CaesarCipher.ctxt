@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=CaesarCipher
+comment1.params=s
+comment1.target=void\ print(java.lang.String)
+comment2.params=
+comment2.target=void\ testEncryptTwoKeys()
+comment3.params=input\ key1\ key2
+comment3.target=java.lang.String\ encryptTwoKeys(java.lang.String,\ int,\ int)
+comment4.params=input\ key\ start\ incr
+comment4.target=java.lang.String\ encrypt(java.lang.String,\ int,\ int,\ int)
+comment5.params=input\ key
+comment5.target=java.lang.String\ encrypt(java.lang.String,\ int)
+comment6.params=
+comment6.target=void\ testEncrypt()
+numComments=7
