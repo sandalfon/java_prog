@@ -9,88 +9,78 @@ import edu.duke.*;
 import java.io.*;
 
 public class CaesarCipher {
-    
-     private void print(String  s){
-        System.out.println(s);   
+
+    private String alphabet;
+    private String shiftedAlpha;
+
+    public CaesarCipher(int key) {
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        shiftedAlpha = alphabet.substring(key)+ alphabet.substring(0, key);
+    }
+  
+    public CaesarCipher() {
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        shiftedAlpha = alphabet.substring(3)+ alphabet.substring(0, 3);
     }
     
-    public void testEncryptTwoKeys(){
-        print(encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 8, 21));
-        
-    }
     
-    
-    private String encryptTwoKeys(String input, int key1, int key2){
-        String ans = input;
-        ans = encrypt(ans,key1,0,2);
-        ans = encrypt(ans,key2,1,2);
-        
-        return ans; 
-    }
-   
-    private String encrypt(String input, int key,int start, int incr){
-        StringBuilder ans = new StringBuilder(input);
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        char currentChar ;
+    public String encrypt(String input){
+        char currentChar;
         int idx;
         char codedChar;
-        String shiftedAlphabet = alphabet.substring(key)+ alphabet.substring(0, key);
-        for(int i = start; i<ans.length(); i = i + incr){
+        StringBuilder ans = new StringBuilder(input);
+        for(int i = 0; i<ans.length(); i++){
             currentChar = ans.charAt(i);
             idx = alphabet.indexOf(Character.toUpperCase(currentChar));
             if(idx !=-1){
-                codedChar = shiftedAlphabet.charAt(idx);
+                codedChar = shiftedAlpha.charAt(idx);
                 if(Character.isUpperCase(input.charAt(i))){
                     ans.setCharAt(i,(Character.toUpperCase(codedChar)));
-                    
+
                 }else{
-                    
+
                     ans.setCharAt(i,(Character.toLowerCase(codedChar)));
                 }
-                
-                
+
             }
-
         }
-
+        print(ans.toString());
         return ans.toString(); 
     }
     
-
-    private String encrypt(String input, int key){
-        return encrypt(input, key, 0,1);/*
-        StringBuilder ans = new StringBuilder(input);
-        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        char currentChar ;
-        int idx;
-        char codedChar;
-        String shiftedAlphabet = alphabet.substring(key)+ alphabet.substring(0, key);
-        for(int i =0; i<ans.length(); i++){
-            currentChar = ans.charAt(i);
-            idx = alphabet.indexOf(Character.toUpperCase(currentChar));
-            if(idx !=-1){
-                codedChar = shiftedAlphabet.charAt(idx);
-                if(Character.isUpperCase(input.charAt(i))){
-                    ans.setCharAt(i,(Character.toUpperCase(codedChar)));
-                    
-                }else{
-                    
-                    ans.setCharAt(i,(Character.toLowerCase(codedChar)));
-                }
-                
-                
-            }
-
-        }
-
-        return ans.toString(); */
+    
+    private void print(String s){
+        
+     System.out.println(s);   
     }
 
-    public void  testEncrypt(){
-        FileResource fr = new FileResource();
-        String message = fr.asString();
-        int key = 15;
-        String encrypted = encrypt(message, key);
-        print("key is " + key + "\n" + encrypted);
+    public void testSplitMerge(){
+        String input="1234567890";
+        String[] split = Utils.splitEvenString(input);
+        String output = Utils.mergeEvenString(split);
+        print(input);
+        print(split[0]);
+        print(split[1]);
+        print(output);
+        
     }
+    
+
+    
+    public String encryptTwoKeys(String input, int key1, int key2){
+    String[] split = Utils.splitEvenString(input); 
+    CaesarCipher cc1 = new CaesarCipher(key1);
+    CaesarCipher cc2 = new CaesarCipher(key2);
+    split[0]= cc1.encrypt(split[0]);
+    split[1]= cc2.encrypt(split[1]);
+    print(Utils.mergeEvenString(split));
+    return Utils.mergeEvenString(split); 
+    }
+    
+    
+   public void testEncryptTwoKeys(){
+    print(encryptTwoKeys("At noon be in the conference room with your hat on for a surprise party. YELL LOUD!", 23, 17));
+    }
+
+    
 }
